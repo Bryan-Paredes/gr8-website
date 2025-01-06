@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Shield, Clock, CreditCard, HeartHandshake } from "lucide-react";
