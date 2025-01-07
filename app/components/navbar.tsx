@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-// import { ShoppingBag, Menu } from "lucide-react";
-// import { Button } from "@/components/ui/button";
 import { menuItems } from "@/data/site";
 import { useEffect, useState } from "react";
 
