@@ -1,7 +1,4 @@
-"use client";
-
 import { useParams } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
@@ -80,32 +77,7 @@ export default function ProductPage() {
         <ArrowLeft className="mr-2 h-4 w-4" />
         Back to products
       </Link>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-        <div>
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-auto object-cover rounded-lg"
-          />
-        </div>
-        <div>
-          <h1 className="text-4xl font-light text-gray-900 dark:text-white mb-4">
-            {product.name}
-          </h1>
-          <p className="text-2xl font-light text-gray-900 dark:text-white mb-4">
-            {product.price}
-          </p>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
-            {product.category}
-          </p>
-          <p className="text-gray-700 dark:text-gray-300 mb-8">
-            {product.description}
-          </p>
-          <Button className="w-full md:w-auto rounded-full px-8">
-            Add to Cart
-          </Button>
-        </div>
-      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16"></div>
     </div>
   );
 }
