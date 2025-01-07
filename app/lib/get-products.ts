@@ -7,7 +7,7 @@ export function getProducts() {
         .then(res => {
             const { data, meta } = res
 
-            const products = data.map(product => {
+            const products = data.map((product: { id: number; name: string; slug: string; description: string; images: { url: string }[]; price: number }) => {
                 const { id, name, slug, description, images: rawImages, price } = product
                 const images = `${STRAPI_HOST}${rawImages[0].url}`
 
