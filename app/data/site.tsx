@@ -3,10 +3,10 @@ import {
   Mail,
   Package2,
   Users2,
-  Shield,
   Clock,
   CreditCard,
   HeartHandshake,
+  ShieldCheck,
 } from "lucide-react";
 
 export const menuItems = [
@@ -36,32 +36,9 @@ export const menuItems = [
   },
 ];
 
-export const solutions = [
-  {
-    title: "Concepto",
-    image: "/collection/concepto.webp",
-    link: "/collection/concept",
-  },
-  {
-    title: "Moderno",
-    image: "/collection/moderno.webp",
-    link: "/collection/modern",
-  },
-  {
-    title: "Clásico",
-    image: "/collection/clasico.webp",
-    link: "/collection/classic",
-  },
-  {
-    title: "Lujo",
-    image: "/collection/lujo.webp",
-    link: "/collection/luxury",
-  },
-];
-
 export const services = [
   {
-    icon: Shield,
+    icon: ShieldCheck,
     title: "Servicio Completo",
     description:
       "Ofrecemos soluciones completas de diseño de interiores desde el concepto hasta la ejecución",
