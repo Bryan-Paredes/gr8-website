@@ -1,14 +1,14 @@
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/navbar";
-// import { Metadata } from "next";
+import type { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// const metadata: Metadata = {
-//   title: "GR8",
-//   description: "GR8 is a modern interior design studio based in New York City.",
-// };
+export const metadata: Metadata = {
+  title: "GR8 | Mueblería de Interiores",
+  description: "GR8 is a modern interior design studio based in New York City.",
+};
 
 export default function RootLayout({
   children,
@@ -17,6 +17,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" suppressHydrationWarning className="dark">
+      <meta name="description" content={metadata.description} />
+      <link rel="icon" href="/logo.svg" />
+      <link
+        rel="apple-icon"
+        href="/logo.svg"
+        type="image/svg+xml"
+        sizes="<generated>"
+      />
+      <link
+        rel="apple-touch-icon"
+        href="/logo.svg"
+        type="image/svg+xml"
+        sizes="<generated>"
+      />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <body className={`${inter.className} bg-black text-white`}>
         <Navbar />
         {children}
