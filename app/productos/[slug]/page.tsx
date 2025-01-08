@@ -3,12 +3,15 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
-export default async function ProductPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const { slug } = await params;
+interface PageProps {
+  params: {
+    slug: string;
+  };
+  searchParams: Record<string, string | string[] | undefined>;
+}
+
+export default async function ProductPage({ params }: PageProps) {
+  const { slug } = params;
   const { product } = await getSingleProduct({ slug });
 
   if (product.length === 0) return null;
@@ -24,12 +27,12 @@ export default async function ProductPage({
       </Link>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">{slug}</div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-        {product.map((signleProduct, index) => (
-          <div key={index}>
-            {signleProduct.name}
-            {signleProduct.price}
-            <img src={signleProduct.images} alt="" />
-            <BlocksRenderer content={signleProduct.description} />
+        {product.map((singleProduct, index) => (
+          <div key={singleProduct.id ?? index}>
+            {singleProduct.name}
+            {singleProduct.price}
+            <img src={singleProduct.images} alt={singleProduct.name} />
+            <BlocksRenderer content={singleProduct.description} />
           </div>
         ))}
       </div>
