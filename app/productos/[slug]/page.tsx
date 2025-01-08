@@ -3,14 +3,11 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-  searchParams: Record<string, string | string[] | undefined>;
-}
-
-export default async function ProductPage({ params }: PageProps) {
+export default async function ProductPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const { slug } = params;
   const { product } = await getSingleProduct({ slug });
 
