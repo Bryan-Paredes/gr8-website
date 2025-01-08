@@ -3,14 +3,14 @@
 import Link from "next/link";
 import { menuItems } from "@/data/site";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
-  const [activeItem, setActiveItem] = useState("");
+  const pathname = usePathname();
+
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    setActiveItem(window.location.pathname);
-
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -28,57 +28,38 @@ export default function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-6 py-6">
+        <div className="max-w-[1400px] mx-auto px-6 py-2">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-12">
               <Link href="/" className="text-xl font-light">
-                <img src="/vercel.svg" alt="Logo" className="w-10 " />
+                <img src="/logo.svg" alt="Logo" className="w-20 h-16" />
               </Link>
             </div>
-            <div className="hidden md:flex items-center space-x-12">
+            <div className="hidden md:flex items-center space-x-8">
               {menuItems.map((item) => (
                 <Link
                   key={item.id}
                   href={item.href}
-                  className={`font-semibold transition-colors duration-300 ${
-                    activeItem === item.href
+                  className={`font-semibold transition-colors duration-300 py-1 ${
+                    pathname === item.href
                       ? isScrolled
-                        ? "text-black"
-                        : "text-primary"
+                        ? "text-white border-b-2 border-white"
+                        : "text-gray-400 border-b-2 border-gray-300"
                       : isScrolled
-                      ? "text-white hover:text-blue-600"
-                      : "text-white hover:text-blue-500"
+                      ? "text-gray-400 hover:text-gray-500"
+                      : "text-white hover:text-gray-500"
                   } ${
                     item.id === "contacto"
                       ? isScrolled
-                        ? "bg-transparent border-[3px] border-black px-4 py-2 rounded-lg hover:bg-black hover:text-white"
-                        : "bg-transparent border-[3px] border-primary px-4 py-2 rounded-lg hover:bg-primary hover:text-white"
+                        ? "text-white bg-transparent border-[2px] px-6 py-1 rounded-lg hover:bg-gray-100 hover:border-gray-300 transition-colors"
+                        : "text-white bg-transparent border-[2px] px-6 py-1 rounded-lg hover:text-white hover:bg-primary hover:border-primary  transition-colors"
                       : ""
                   }`}
-                  onClick={() => setActiveItem(item.href)}
                 >
                   {item.name}
                 </Link>
               ))}
             </div>
-            {/* <div className="flex items-center space-x-6">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-white hover:text-gray-400"
-              >
-                <ShoppingBag className="h-5 w-5" />
-                <span className="sr-only">Shopping cart</span>
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-white hover:text-gray-400 md:hidden"
-              >
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Menu</span>
-              </Button>
-            </div> */}
           </div>
         </div>
       </nav>
@@ -89,9 +70,8 @@ export default function Navbar() {
               <a
                 href={item.href}
                 className={`flex flex-col items-center text-xs ${
-                  activeItem === item.href ? "text-blue-500" : "text-white"
+                  pathname === item.href ? "text-blue-500" : "text-white"
                 }`}
-                onClick={() => setActiveItem(item.href)}
               >
                 <item.icon className="w-6 h-6 mb-1" />
                 {item.name}
