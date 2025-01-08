@@ -15,7 +15,8 @@ export default {
 				},
 			},
 			backgroundImage: {
-				'back-metrics': "url('/backmetrics.webp')"
+				'back-metrics': "url('/backmetrics.webp')",
+				'back-category': "url('/backcategory.webp')",
 			},
 		},
 	},
