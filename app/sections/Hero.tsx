@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { getHomeInfo } from "@/lib/get-home-info";
-import React from "react";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import { ArrowRight } from "@/components/ui/icons";
 import Link from "next/link";
@@ -20,7 +19,7 @@ export default async function Hero() {
       </div>
       <div className="relative h-full flex items-center justify-center text-center px-4">
         <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             {Titulo}
           </h1>
           <div className="text-lg md:text-xl text-gray-300 mb-8">
@@ -30,11 +29,14 @@ export default async function Hero() {
             asChild
             size="lg"
             variant="outline"
-            className="rounded-lg hover:bg-primary hover:border-primary text-white"
+            className="rounded-lg border-2 hover:bg-primary hover:border-primary text-white"
           >
-            <Link href="/productos">
+            <Link
+              href="/productos"
+              className="hover:scale-105 transition-transform"
+            >
               Ver Productos
-              <ArrowRight />
+              <ArrowRight size={30} />
             </Link>
           </Button>
         </div>
