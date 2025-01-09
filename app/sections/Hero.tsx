@@ -7,6 +7,9 @@ import Link from "next/link";
 export default async function Hero() {
   const { Titulo, Descripcion, image } = await getHomeInfo();
 
+  if (Titulo === undefined || Descripcion === undefined || image === undefined)
+    return null;
+
   return (
     <div className="relative h-screen">
       <div className="absolute inset-0">

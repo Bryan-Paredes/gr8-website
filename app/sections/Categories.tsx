@@ -4,7 +4,7 @@ export default async function Categories() {
   try {
     const categories = await getCategories();
 
-    if (categories.length === 0) return null;
+    if (categories.length === 0) return <div>No se encontraron categorías</div>;
     return (
       <div className="py-16 px-4 bg-background/10">
         <h3 className="text-4xl my-10 text-center">Nuestras Categorías</h3>
