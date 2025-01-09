@@ -13,6 +13,12 @@ export default {
 				primary: {
 					DEFAULT: "#416681",
 				},
+				secondary: {
+					DEFAULT: "#2d3e4d",
+				},
+				background: {
+					DEFAULT: '#1e2933',
+				},
 			},
 			backgroundImage: {
 				'back-metrics': "url('/backmetrics.webp')",
