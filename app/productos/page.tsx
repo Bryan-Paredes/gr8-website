@@ -4,12 +4,10 @@ import SortBy from "@/components/SortBy";
 import { getProducts } from "@/lib/get-products";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
-export default async function ProductsPage({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | undefined };
-}) {
-  const { sort, category } = await searchParams;
+type tParams = Promise<{ sort: string; category: string }>;
+
+export default async function ProductsPage(props: { searchParams: tParams }) {
+  const { sort, category } = await props.searchParams;
 
   const { products } = await getProducts(
     { sort: sort },
