@@ -9,7 +9,7 @@ export default function Metrics() {
       <div
         className="absolute inset-0 bg-back-category bg-cover bg-no-repeat bg-center backdrop-blur-md"
         style={{
-          maskImage: "linear-gradient(black 80%, transparent 100%)",
+          maskImage: "linear-gradient(black 85%, transparent 100%)",
         }}
       >
         <div className="absolute inset-0 bg-black opacity-60"></div>

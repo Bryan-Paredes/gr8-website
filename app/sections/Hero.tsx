@@ -14,6 +14,10 @@ export default async function Hero() {
           src={image}
           alt="Modern kitchen interior"
           className="w-full h-full object-cover object-center"
+          style={{
+            maskImage:
+              "linear-gradient(to bottom, #1e2933 90%, transparent 100%)",
+          }}
         />
         <div className="absolute inset-0 bg-black/60" />
       </div>
@@ -29,7 +33,7 @@ export default async function Hero() {
             asChild
             size="lg"
             variant="outline"
-            className="rounded-lg border-2 hover:bg-primary hover:border-primary text-white"
+            className="bg-transparent rounded-lg border-2 hover:bg-primary hover:border-primary text-white"
           >
             <Link
               href="/productos"

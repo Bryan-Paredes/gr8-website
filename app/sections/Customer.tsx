@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Customer() {
   return (
-    <div className="py-11 px-4 bg-black">
+    <div className="py-11 px-4 bg-background/10">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-semibold text-center mb-16 uppercase text-white">
           Estandares de Cálidad
@@ -12,7 +12,7 @@ export default function Customer() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center bg-white backdrop-filter backdrop-blur-xl bg-opacity-5 border-[1.5px] border-white px-4 py-8 rounded-lg drop-shadow-xl"
+              className="bg-secondary flex flex-col items-center justify-center backdrop-filter bg-opacity-30 backdrop-blur-xl border-[1.5px] border-white px-4 py-8 rounded-lg drop-shadow-xl"
             >
               <div className="inline-flex items-center justify-center w-20 h-16  p-3 mb-6">
                 <service.icon size={60} color="white" />
