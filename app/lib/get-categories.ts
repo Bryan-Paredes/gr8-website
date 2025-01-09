@@ -12,4 +12,8 @@ export function getCategories() {
                 return { name, slug, description, image }
             })
         })
+        .catch(err => {
+            console.log('Error: ', err)
+            return null
+        })
 }
