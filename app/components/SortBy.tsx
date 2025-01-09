@@ -9,7 +9,7 @@ export default function SortBy() {
 
   const currentFilter = searchParams.get("sortBy") ?? "all";
 
-  const handleCliick = (filter: string) => () => {
+  const handleClick = (filter: string) => () => {
     const query = filter === "all" ? "" : `?sort=${filter}`;
     router.push(`${pathname}${query}`);
   };
@@ -18,23 +18,32 @@ export default function SortBy() {
     <div className="flex items-center justify-center py-4 flex-wrap gap-4">
       <button
         type="button"
-        onClick={handleCliick("all")}
+        onClick={handleClick("all")}
         className={`inline-flex items-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${
           currentFilter === "all"
             ? "bg-white text-gray-700"
             : "bg-transparent border border-gray-300"
         }`}
       >
-        Todos
+        Restablecer
       </button>
       <button
         type="button"
-        onClick={handleCliick("price")}
+        onClick={handleClick("price")}
         className={`inline-flex items-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${
           currentFilter !== "all" ? "text-blue-500" : ""
         }`}
       >
-        Precio
+        Precio Asc ⬆️
+      </button>
+      <button
+        type="button"
+        onClick={handleClick("price:desc")}
+        className={`inline-flex items-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${
+          currentFilter !== "all" ? "text-blue-500" : ""
+        }`}
+      >
+        Precio Des ⬇️
       </button>
     </div>
   );
