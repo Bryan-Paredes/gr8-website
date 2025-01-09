@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import ByCategory from "@/components/ByCategory";
 import SortBy from "@/components/SortBy";
 import { getProducts } from "@/lib/get-products";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
@@ -8,12 +9,17 @@ export default async function ProductsPage({
 }: {
   searchParams: { [key: string]: string | undefined };
 }) {
-  const { sort } = await searchParams;
+  const { sort, category } = await searchParams;
 
-  const { products } = await getProducts({ sort: sort });
+  const { products } = await getProducts(
+    { sort: sort },
+    { category: category }
+  );
+
+  // const { product } = await getByCategory({ category: category });
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background/50">
       {/* Hero Banner */}
       <div
         className="relative h-72 bg-back-metrics bg-cover bg-center"
@@ -25,6 +31,7 @@ export default async function ProductsPage({
       </div>
 
       <div>{products.length > 0 && <SortBy />}</div>
+      <div>{products.length > 0 && <ByCategory />}</div>
 
       <div className="lg:col-span-3 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -37,6 +44,8 @@ export default async function ProductsPage({
                 images: string;
                 description: any;
                 price: number;
+                category: { slug: string };
+                color: string;
               }) => (
                 <div
                   key={product.id}
@@ -60,6 +69,8 @@ export default async function ProductsPage({
                       </h3>
                       <p>{product.price}</p>
                       <BlocksRenderer content={product.description} />
+                      <p>{product.category.slug}</p>
+                      <p>{product.color}</p>
                     </div>
                   </a>
                 </div>
