@@ -8,12 +8,11 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { ServerSideComponentProp } from "@/types/params";
 
 export default async function ProductPage({
   params,
-}: {
-  params: { slug: string };
-}) {
+}: ServerSideComponentProp<{ slug: string }>) {
   const { slug } = await params;
   const { product } = await getSingleProduct({ slug });
 
