@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" suppressHydrationWarning className="dark">
-      <meta name="description" content={metadata.description} />
+      {/* <meta name="description" content={metadata.description} /> */}
       <link rel="icon" href="/logo.svg" />
       <link
         rel="apple-icon"
