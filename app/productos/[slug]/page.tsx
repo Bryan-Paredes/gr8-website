@@ -8,13 +8,13 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { ServerSideComponentProp } from "@/types/params";
+// import { ServerSideComponentProp } from "@/types/params";
 
-export default async function ProductPage({
-  params,
-}: ServerSideComponentProp<{ slug: string }>) {
+type tParams = Promise<{ slug: string }>;
+
+export default async function ProductPage(props: { params: tParams }) {
   try {
-    const { slug } = await params;
+    const { slug } = await props.params;
     const { product } = await getSingleProduct({ slug });
 
     if (product.length === 0) return null;
